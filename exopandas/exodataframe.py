@@ -10,7 +10,7 @@ class ExoDataFrame(DataFrame):
     """
 
     ## Unified column names
-    l_unified_col = [# Names
+    l_unified_col = [  # Names
                      'pl_name', 'st_name',
                      # Planet orbital elements
                      'pl_omega', 'pl_per', 't_ic', 't_tr', 't_peri', 'pl_inc', 'pl_a', 'pl_ecc',
@@ -18,7 +18,7 @@ class ExoDataFrame(DataFrame):
                      'tr_dur', 'b', 'transiting?', 'tr_depth', 'occ_depth', 'pl_aR',
                      # Planet physical parameters
                      'pl_massj', 'pl_msinij', 'pl_mass_orig', 'pl_radj', 'pl_rad_orig',
-                     'pl_g', 'pl_rho', 'pl_teq',
+                     'pl_g', 'pl_rhoj', 'pl_teq',
                      # Stellar physical parameters
                      'st_teff', 'sp_type', 'st_logg', 'st_metal', 'st_mass', 'st_rad', 'st_rho',
                      # Stellar RV parameter
@@ -27,7 +27,7 @@ class ExoDataFrame(DataFrame):
                      'dec', 'ra', 'pm_ra', 'pm_dec', 'plx',
                      # Star magnitude
                      'mag_opt', 'mag_v',
-                      ]
+                     ]
 
     _metadata = ['_column_info', 'l_unified_col']
 
@@ -57,7 +57,10 @@ class ExoDataFrame(DataFrame):
         self._add_available_unified_cols()
 
     def _add_available_unified_cols(self):
-        """Add available unified columns"""
+        """Add available unified columns.
+
+        Should be overloaded when creating a subclass.
+        """
         pass
 
     def _add_unified_colname(self, unified_colname, original_colname, description="", unit=None):
@@ -77,12 +80,13 @@ class ExoDataFrame(DataFrame):
             raise ValueError("unified_colname {} doesn't not exist.".format(unified_colname))
 
     def _add_nonunified_colname(self, original_colname, description="", unit=None):
-        """Add a new unified column name to the database.
+        """Add a new non unified column name to the database.
 
         :param string original_colnames: Corresponding column name in the database
         :param string description: Description of the column content
         """
-        self._column_info = self.column_info.append({"unified_colname": "", "available": True, "original_colname": original_colname, "description": description, "unit": unit}, ignore_index=True)
+        self._column_info = self.column_info.append({"unified_colname": "", "available": True, "original_colname": original_colname,
+                                                     "description": description, "unit": unit}, ignore_index=True)
 
     def _get_index_in_column_info(self, val, col):
         """Return the index of the row where the value of the column col is val in column_info.
@@ -171,7 +175,7 @@ class ExoDataFrame(DataFrame):
     def select_opt_mag(self):
         """Select according to star magnitude in the optical bands.
         """
-        raise NotImplementedError
+        raise NotImplementedError()
 
     def is_star_in(self, star):
         """Return True if star is in the database.

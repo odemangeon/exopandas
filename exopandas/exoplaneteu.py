@@ -10,6 +10,8 @@ v = pyasl.ExoplanetEU2()
 
 
 class ExoplanetEU(ExoDataFrame):
+    """DataFrame containing all the information from ExoplanetEU.
+    """
 
     def __init__(self, *args, **kwargs):
         if len(args) == 0:
