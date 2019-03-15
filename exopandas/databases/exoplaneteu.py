@@ -13,6 +13,10 @@ column_info = add_column_2_column_info(column_info=column_info, original_column=
                                        description='', unit=uu.deg)
 column_info = add_column_2_column_info(column_info=column_info, original_column='orbital_period', unified_column='pl_per',
                                        description='', unit=uu.d)
+column_info = add_column_2_column_info(column_info=column_info, original_column='orbital_period_error_min', unified_column='pl_per_err_inf',
+                                       description='', unit=uu.d)
+column_info = add_column_2_column_info(column_info=column_info, original_column='orbital_period_error_max', unified_column='pl_per_err_sup',
+                                       description='', unit=uu.d)
 column_info = add_column_2_column_info(column_info=column_info, original_column='tzero_tr', unified_column='t_tr',
                                        description='', unit=uu.d)
 column_info = add_column_2_column_info(column_info=column_info, original_column='tperi', unified_column='t_peri',
@@ -32,6 +36,10 @@ column_info = add_column_2_column_info(column_info=column_info, original_column=
 column_info = add_column_2_column_info(column_info=column_info, original_column='radius_detection_type', unified_column='pl_rad_orig',
                                        description='', unit=non_app)
 column_info = add_column_2_column_info(column_info=column_info, original_column='mass', unified_column='pl_massj',
+                                       description='', unit=uu.M_jup)
+column_info = add_column_2_column_info(column_info=column_info, original_column='mass_error_min', unified_column='pl_massj_err_inf',
+                                       description='', unit=uu.M_jup)
+column_info = add_column_2_column_info(column_info=column_info, original_column='mass_error_max', unified_column='pl_massj_err_sup',
                                        description='', unit=uu.M_jup)
 column_info = add_column_2_column_info(column_info=column_info, original_column='mass_sini', unified_column='pl_msinij',
                                        description='', unit=uu.M_jup)
@@ -55,7 +63,12 @@ column_info = add_column_2_column_info(column_info=column_info, original_column=
                                        description='', unit=uu.deg)
 column_info = add_column_2_column_info(column_info=column_info, original_column='star_sp_type', unified_column='sp_type',
                                        description='', unit=non_app)
-
+column_info = add_column_2_column_info(column_info=column_info, original_column='radius', unified_column='pl_radj',
+                                       description='', unit=uu.R_jup)
+column_info = add_column_2_column_info(column_info=column_info, original_column='radius_error_min', unified_column='pl_radj_err_inf',
+                                       description='', unit=uu.R_jup)
+column_info = add_column_2_column_info(column_info=column_info, original_column='radius_error_max', unified_column='pl_radj_err_sup',
+                                       description='', unit=uu.R_jup)
 
 def load_db():
     """Load the database exoplanet.et as a DataFrame and return it.

@@ -77,6 +77,8 @@ unified_cols = add_column_2_unified_cols(unified_cols, column='st_name', descrip
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_name', description='Planet name', unit='N/A')
 # Planet orbital elements
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_per', description='Planetary orbital period', unit=uu.d)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_per_err_inf', description='Inferior error bar on the planetary orbital period', unit=uu.d)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_per_err_sup', description='Superior error bar on the planetary orbital period', unit=uu.d)
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_omega', description='*Stellar* orbital argument of periastron corresponding to the planetary one', unit=uu.deg)
 unified_cols = add_column_2_unified_cols(unified_cols, column='t_ic', description='Planetary time of inferior conjunction', unit=uu.d)
 unified_cols = add_column_2_unified_cols(unified_cols, column='t_tr', description='Planetary transit time', unit=uu.d)
@@ -93,9 +95,13 @@ unified_cols = add_column_2_unified_cols(unified_cols, column='occ_depth', descr
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_aR', description='Planetary orbital semi-major axis over the stellar radius', unit='w/o unit')
 # Planet physical parameters
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_massj', description='Planetary mass', unit=uu.M_jup)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_massj_err_inf', description='Inferior error bar on the planetary mass', unit=uu.M_jup)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_massj_err_sup', description='Superior error bar on the planetary mass', unit=uu.M_jup)
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_msinij', description='Planetary mass multiplied by the sin of the orbital inclination', unit=uu.M_jup)
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_mass_orig', description='Origin of the planetary mass', unit='N/A')
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_radj', description='Planetary radius', unit=uu.R_jup)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_radj_err_inf', description='Inferior error bar on planetary radius', unit=uu.R_jup)
+unified_cols = add_column_2_unified_cols(unified_cols, column='pl_radj_err_sup', description='Superior error bar on planetary radius', unit=uu.R_jup)
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_rad_orig', description='Origin of the planetary radius', unit='N/A')
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_g', description='Planetary surface gravity', unit=uu.m * uu.s**2)
 unified_cols = add_column_2_unified_cols(unified_cols, column='pl_rhoj', description='Planetary mean density', unit=uu.M_jup / uu.R_jup**3)

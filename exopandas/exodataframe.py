@@ -2,6 +2,8 @@ from numpy import where
 from pandas import DataFrame
 from pandas.api.types import is_list_like
 
+from formated_docstring import _formatDostring
+
 from .databases.exoplaneteu import column_info as column_info_EU
 from .databases.exoplaneteu import load_db as load_db_EU
 from .databases.exoplanetarchive import column_info as column_info_EA
@@ -10,6 +12,7 @@ from .databases.sweetcat import column_info as column_info_SC
 from .databases.sweetcat import load_db as load_db_SC
 from .databases.tepcat import column_info_WS, column_info_Pl, column_info_LS, column_info_HM, column_info_HP, column_info_Ob
 from .databases.tepcat import load_db_WS, load_db_Pl, load_db_LS, load_db_HM, load_db_HP, load_db_Ob
+
 
 dico_databases = {"exoplaneteu": {"column_info": column_info_EU, "load_db": load_db_EU},
                   "exoplanetarchive": {"column_info": column_info_EA, "load_db": load_db_EA},
@@ -94,10 +97,11 @@ class ExoDataFrame(DataFrame):
         else:
             return idx[0]
 
+    @_formatDostring(__list__=list(dico_databases.keys()))
     def load(self, database, unify=True):
         """Load a database in the current exopandas.
 
-        :param str database: Name of the database you want to load
+        :param str database: Name of the database you want to load ({__list__})
         :param bool unify: If True the name of the column which can be unified are changed and the
             values are convert in the correct units if necessary/possible
         """

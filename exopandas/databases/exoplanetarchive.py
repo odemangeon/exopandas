@@ -43,7 +43,7 @@ column_info = add_column_2_column_info(column_info=column_info, original_column=
                                        description='', unit=uu.M_jup)
 column_info = add_column_2_column_info(column_info=column_info, original_column='mass_sini', unified_column='pl_msinij',
                                        description='', unit=uu.M_jup)
-column_info = add_column_2_column_info(column_info=column_info, original_column='pl_bmassprov', unified_column='pl_rad_orig',
+column_info = add_column_2_column_info(column_info=column_info, original_column='pl_bmassprov', unified_column='pl_mass_orig',
                                        description='', unit=non_app)
 column_info = add_column_2_column_info(column_info=column_info, original_column='pl_eqt', unified_column='pl_teq',
                                        description='', unit=uu.K)
